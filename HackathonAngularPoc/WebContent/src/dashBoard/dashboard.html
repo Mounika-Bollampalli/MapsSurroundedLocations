@@ -1,0 +1,86 @@
+<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+</style>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Data loader start --> 
+<div id="mydiv" ng-show="dataLoader">
+    <div  class="loader ajax-loader" style="position: absolute;"></div>
+ </div>
+ <!-- Data loader End --> 
+ <!-- User Table  start --> 
+        <div ng-hide="dataLoader">
+           <div style="text-align: center;font-size: 24px;margin-top: 5%;text-transform: uppercase;">User Table</div>
+            <table class="table table-striped table-condensed table-hover">
+         
+                <thead>
+ <tr><td>Packge Details</td><td></td><td></td><td></td><td></td><td><a data-ng-href="http://localhost:8081/HackathonAngularPoc/src/route/addroute.html">AddRoute</a></td></tr>
+                    <tr>
+                        <th class="id" >S.NO</th>
+                        <th class="description" >Origin</th>
+                        <th class="field3" >Destination</th>
+                        <th class="field4" >Driver Details</th>
+                        <th class="field5" >Rounte</th>
+                    </tr>
+                </thead>
+                <tfoot></tfoot>
+                <!-- <tfoot>
+                <td >Displaying {{from}} to {{end}} of {{total}}</td>
+                    <td colspan="6">
+                        <div class="pagination pull-right">
+                            <ul>
+                                <li ng-class="{disabled: page == 1}">
+                                    <a href ng-click="prevPage()">« Prev</a>
+                                </li>
+                            
+                                <li ng-repeat="n in pageList"
+                                    ng-class="{active: n == page}"
+                                ng-click="setPage(n)">
+                                    <a href ng-bind="n "></a>
+                                </li>
+                             
+                                <li ng-class="{disabled:page== pageList.length}">
+                                    <a href ng-click="nextPage()">Next »</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tfoot>
+                 -->
+                <tbody>
+                    <tr ng-repeat="item in packgeList">
+                        <td>{{item.package_id}}</td>
+                         <td>{{item.form_address}}</td>
+                         <td>{{item.to_address}}</td>
+                       <td>{{item.driver_details.name}}</td>
+                       <td></td>
+                      <td ><i style="" class="fa"  ng-click="map(item)">route </i></td>
+                       
+                        <!--  <td>{{item.field4}}</td>
+                        <td>{{item.field5}}</td> -->
+                    </tr>
+                </tbody>
+                
+                
+                 
+            </table>
+            </div>

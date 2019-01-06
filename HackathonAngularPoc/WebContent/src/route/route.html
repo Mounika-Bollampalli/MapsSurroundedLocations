@@ -1,0 +1,35 @@
+    <!-- <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="./css/map.css" /> -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/4.1.6/css/foundation.min.css"  /> 
+  <link rel="stylesheet" href="css/map.css" />
+<div class="panel panel-default">
+      <div class="panel-body">
+        <google-map control="map.control" center="map.center" zoom="map.zoom">
+          <marker coords="marker.center"></marker>
+        </google-map>
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="origin" class="col-sm-2 control-label">Origin</label>
+            <div class="col-sm-8">
+              <input type="text" id="origin" class="form-control" ng-model="directions.origin" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="destination" class="col-sm-2 control-label">Destination</label>
+            <div class="col-sm-8">
+              <input type="text" id="destination" class="form-control" ng-model="directions.destination" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-8">
+              <button class="btn btn-primary" ng-click="getDirections()">Get Directions</button>
+            </div>
+            <div class="col-sm-offset-2 col-sm-8">
+              <button class="btn btn-primary" ng-click="getBack()">Back</button>
+            </div>
+          </div>
+        </form>
+        
+        <div id="directionsList" ng-show="directions.showList" class="panel panel-primary"></div>
+      </div>
+    </div>

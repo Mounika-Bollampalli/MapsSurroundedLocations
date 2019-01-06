@@ -1,0 +1,117 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+        $('#btnSubmit').click(function(e) {
+            var isValid1 = true;
+            $('input[type="password"]').each(function() {
+                if ($.trim($(this).val()) == '') {
+                    isValid1 = false;
+                    $(this).css({
+                        
+                        "border-bottom": "1px solid #F44336",
+                    "box-shadow": "0 1px 0 0 #F44336"
+                    });
+                } else {
+                    $(this).css({
+                        "border-bottom" : "",
+                        "box-shadow" : ""
+                    });
+                }
+            });
+            if (isValid1 == false)
+                e.preventDefault();
+
+        });
+        
+        $('#btnSubmit').click(function(e) {
+            var isValid1 = true;
+            $('input[type="email"]').each(function() {
+                if ($.trim($(this).val()) == '') {
+                    isValid1 = false;
+                    $(this).css({
+                        
+                        "border-bottom": "1px solid #F44336",
+                    "box-shadow": "0 1px 0 0 #F44336"
+                    });
+                } else {
+                    $(this).css({
+                        "border-bottom" : "",
+                        "box-shadow" : ""
+                    });
+                }
+            });
+            if (isValid1 == false)
+                e.preventDefault();
+
+        });
+        
+        $('#btnSubmit').click(function(e) {
+            var isValid1 = true;
+            $('input[type="text"]').each(function() {
+                if ($.trim($(this).val()) == '') {
+                    isValid1 = false;
+                    $(this).css({
+                        
+                        "border-bottom": "1px solid #F44336",
+                    "box-shadow": "0 1px 0 0 #F44336"
+                    });
+                } else {
+                    $(this).css({
+                        "border-bottom" : "",
+                        "box-shadow" : ""
+                    });
+                }
+            });
+            if (isValid1 == false)
+                e.preventDefault();
+
+        });
+    });
+
+</script>
+<div id="register" class="col s12">
+        <form class="col s12" novalidate="" name="regform" data-ng-submit="regSubmit(regform)">
+            <div class="form-container">
+                <h3 class="teal-text">Welcome</h3>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text"  name="first_names" class="validate" data-ng-model="regform.first_name" data-ng-required="true">
+                        <label for="first_name">First Name*</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" name="last_names" class="validate" data-ng-model="regform.last_name" data-ng-required="true">
+                        <label for="last_name">Last Name*</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" name="emails" class="validate" data-ng-model="regform.email" data-ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" data-ng-required="true" oncopy="return false" onpaste="return false">
+                        <label for="email">Email*</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email-confirm" type="email" name="email_confirms" class="validate" data-ng-model="regform.email_confirm" data-ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" data-ng-required="true" oncopy="return false" onpaste="return false">
+                        <label for="email-confirm">Email Confirmation*</label>
+                        <span data-ng-if="emailMessage" style="color:red">email is not matched</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" name="passwords" class="validate" data-ng-model="regform.password" maxlength="8" data-ng-required="true" oncopy="return false" onpaste="return false">
+                        <label for="password">Password*</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password-confirm" type="password" name="password_confirms" class="validate" data-ng-model="regform.password_confirm" maxlength="8" data-ng-required="true" oncopy="return false" onpaste="return false">
+                        <label for="password-confirm">Password Confirmation*</label>
+                        <span data-ng-if="passwordMessage" style="color:red"> Password is not matched</span>
+                    </div>
+                </div>
+                <center>
+                    <button class="btn waves-effect waves-light teal" type="submit"  id="btnSubmit">Submit</button>
+                </center>
+            </div>
+        </form>
+    </div>
